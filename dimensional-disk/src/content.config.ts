@@ -5,6 +5,10 @@ const products = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/data/products" }),
   schema: z.object({
     name: z.string(),
+    description: z.string(),
+    price: z.string(),
+    id: z.string().uuid(),
+    imageSrc: z.string().url(),
   }),
 });
 
