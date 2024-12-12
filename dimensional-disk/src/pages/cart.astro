@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection, getEntry } from "astro:content";
+import CartSummary from "../components/cart-summary.astro";
 
 const productData = await getCollection("products");
 const products = productData.map((item) => item.data);
@@ -9,5 +10,6 @@ const products = productData.map((item) => item.data);
 <Layout>
   <main>
     <h1>This is cart</h1>
+    <CartSummary />
   </main>
 </Layout>
