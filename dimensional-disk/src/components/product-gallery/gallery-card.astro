@@ -1,17 +1,27 @@
 ---
 interface Props {
   product: {
+    id: string;
     name: string;
     description: string;
     price: string;
-    id: string;
-    imageSrc: string;
+    imgSrc: string;
   };
 }
 
 const { product } = Astro.props;
 ---
 
-<article class="m-2 p-2">
-  <h3>{product.name}</h3>
+<article class="card bg-base-100 w-80 shadow-xl" data-id={product.id}>
+  <figure>
+    <img src="https://picsum.photos/400/200" alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h3 class="card-title text-black">{product.name}</h3>
+    <p class="text-black">{product.description}</p>
+    <p class="text-black">{product.price}</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
 </article>
